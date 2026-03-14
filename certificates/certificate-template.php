@@ -29,7 +29,7 @@ return "
 
       .wrapper{
         width:290mm;
-        height:206mm;
+        height:200mm;
         display:flex;
         align-items:center;
         justify-content:center;
@@ -68,13 +68,13 @@ return "
 
       .subtitle {
         font-size: 18px;
-        margin-bottom: 20px;
+        margin-bottom: 12px;
       }
 
       .name {
         font-size: 36px;
         font-weight: bold;
-        margin: 20px 0;
+        margin: 12px 0;
       }
 
       .course {
@@ -132,12 +132,12 @@ return "
 
         <div class='course'>
             For successfully completing the course(s):
-            <br /><br />
+            <br />
             <strong>$course_list</strong>
         </div>
 
         <div class='qr'>
-            <img src='$qr' width='120' />
+            <img src='$qr' />
         </div>
 
         <div class='cert-number'>Certificate Number: $cert</div>
