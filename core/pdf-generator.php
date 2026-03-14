@@ -5,6 +5,10 @@ if (!defined('ABSPATH')) {
 }
 
 require_once TCM_PATH . 'certificates/certificate-template.php';
+require_once TCM_PATH.'vendor/dompdf/autoload.inc.php';
+
+use Dompdf\Dompdf;
+use Dompdf\Options;
 
 /**
  * Handle certificate download
@@ -52,16 +56,21 @@ function tcm_download_certificate()
 
     wp_reset_postdata();
 
-    /**
-     * NOTE:
-     * This currently outputs HTML but labels it as PDF.
-     * For true PDF generation you would use DomPDF or TCPDF.
-     */
+    $options = new Options();
+    $options->set('isRemoteEnabled',true);
 
-    header('Content-Type: application/pdf');
-    header('Content-Disposition: attachment; filename=certificate-' . $cert . '.pdf');
+    $dompdf = new Dompdf($options);
 
-    echo $html;
+    $dompdf->loadHtml($html);
+
+    $dompdf->setPaper('A4','landscape');
+
+    $dompdf->render();
+
+    $dompdf->stream(
+        "certificate-$cert.pdf",
+        ["Attachment"=>true]
+    );
 
     exit;
 }
