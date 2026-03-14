@@ -1,0 +1,29 @@
+.tcm-verify {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+
+#tcm-cert {
+    color: var(--e-global-color-4ce6bc8);
+}
+
+#tcm-cert:focus {
+    border-color: var(--e-global-color-secondary);
+}
+
+#tcm-verify-btn {
+    color: var(--e-global-color-ff55edf);
+    background-color: var(--e-global-color-81c6ced);
+    border-style: solid;
+    border-width: 1px 1px 1px 1px;
+    border-color: var(--e-global-color-81c6ced);
+    border-radius: 10px 10px 10px 10px;
+}
+
+#tcm-verify-btn:hover {
+    color: var(--e-global-color-81c6ced);
+    background-color: #FFFFFF;
+    border-color: var(--e-global-color-81c6ced);
+}
