@@ -1,18 +1,9 @@
-<?php
-
-function tcm_certificate_html($name,$courses,$cert){
-
-$course_list=implode(', ',$courses);
-
-$qr = tcm_generate_qr($cert);
-$logo = TCM_URL.'assets/logo.svg';
-$signature = TCM_URL.'assets/signature.png';
-$bg = TCM_URL.'assets/certificate-bg.png';
-
-return "
-<html>
+<!doctype html>
+<html lang="en">
   <head>
-    
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test</title>
     <style>
       @page {
         size: A4 landscape;
@@ -27,23 +18,13 @@ return "
           sans-serif;
       }
 
-      .wrapper{
-        width:290mm;
-        height:206mm;
-        display:flex;
-        align-items:center;
-        justify-content:center;
-        margin: auto;
-    }
-
       .certificate {
-        background-image: url('$bg');
+        background-image: url("../../assets/certificate-bg.png");
         background-size: cover;
         background-repeat: no-repeat;
 
-        width: 260mm;
-        height: 180mm;
-        margin: auto;
+        width: 297mm;
+        height: 210mm;
         box-sizing: border-box;
         padding: 10mm;
         border: 8px solid #0e1579;
@@ -87,8 +68,8 @@ return "
       }
 
       .qr img {
-        width: 94px;
-        height: 94px;
+        width: 84px;
+        height: 84px;
         object-fit: contain;
       }
 
@@ -117,40 +98,43 @@ return "
       .sig {
         text-align: center;
       }
+
+      .sig-line {
+        width: 200px;
+        border-top: 1px solid #000;
+        margin-bottom: 5px;
+      }
     </style>
   </head>
   <body>
-    <div class='wrapper'>
-        <div class='certificate'>
-        <img class='logo' src='$logo' />
+    <div class="certificate">
+      <img class="logo" src="$logo" />
 
-        <div class='title'>Certificate of Completion</div>
+      <div class="title">Certificate of Completion</div>
 
-        <div class='subtitle'>This certificate is proudly presented to</div>
+      <div class="subtitle">This certificate is proudly presented to</div>
 
-        <div class='name'>$name</div>
+      <div class="name">$name</div>
 
-        <div class='course'>
-            For successfully completing the course(s):
-            <br /><br />
-            <strong>$course_list</strong>
+      <div class="course">
+        For successfully completing the course(s):
+        <br /><br />
+        <strong>$courses</strong>
+      </div>
+
+      <div class="qr">
+        <img src="$qr" width="120" />
+      </div>
+
+      <div class="cert-number">Certificate Number: $cert</div>
+
+      <div class="signature">
+        <div class="sig-box">
+          <img src="$signature" />
+          <div class="sig-line"></div>
+          <span>Director</span>
         </div>
-
-        <div class='qr'>
-            <img src='$qr' width='120' />
-        </div>
-
-        <div class='cert-number'>Certificate Number: $cert</div>
-
-        <div class='signature'>
-            <div class='sig-box'>
-            <img src='$signature' />
-            <span>Director</span>
-            </div>
-        </div>
-        </div>
+      </div>
     </div>
   </body>
-</html>";
-
-}
+</html>

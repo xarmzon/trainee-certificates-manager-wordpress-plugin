@@ -23,7 +23,7 @@ jQuery(document).ready(function ($) {
         <p><strong>Certificate:</strong> ${res.cert}</p>
 
         <div class="tcm-qr">
-          <img src="${res.qr}" alt="Certificate QR Code">
+          <img style='width: 150px; height: 150px;object-fit: contain' src="${res.qr}" alt="Certificate QR Code">
         </div>
 
         <br>
