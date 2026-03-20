@@ -3,9 +3,9 @@ jQuery(document).ready(function ($) {
   const $certInput = $("#tcm-cert");
   const $result = $("#tcm-result");
 
-  // if ($("#tcm-cert").val()?.trim() !== "") {
-  //   $("#tcm-verify-btn").trigger("click");
-  // }
+  if ($("#tcm-cert").val()?.trim() !== "") {
+    $("#tcm-verify-btn").trigger("click");
+  }
 
   function showMessage(message, color = "black") {
     $result.html(`<p style="color:${color}">${message}</p>`);
@@ -36,7 +36,7 @@ jQuery(document).ready(function ($) {
   }
 
   $verifyBtn.on("click", function () {
-    const cert = $certInput.val().trim();
+    const cert = $certInput.val()?.trim();
 
     if (!cert) {
       showMessage("Please enter a certificate number.", "red");
