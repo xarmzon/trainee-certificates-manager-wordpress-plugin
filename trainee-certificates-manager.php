@@ -2,7 +2,7 @@
 /*
 Plugin Name:    Trainee Certificates Manager
 Description:    Manage trainees, verify certificates and download PDF certificates
-Version:        1.0
+Version:        1.1
 Author:         Adelola Kayode Samson
 Author URI:     https://github.com/xarmzon
 */
@@ -16,6 +16,7 @@ require_once TCM_PATH.'admin/post-type.php';
 require_once TCM_PATH.'admin/meta-box.php';
 require_once TCM_PATH.'admin/admin-columns.php';
 require_once TCM_PATH.'admin/csv-import.php';
+require_once TCM_PATH.'admin/csv-export.php';
 require_once TCM_PATH.'admin/admin-search.php';
 require_once TCM_PATH.'admin/admin-filter.php';
 
