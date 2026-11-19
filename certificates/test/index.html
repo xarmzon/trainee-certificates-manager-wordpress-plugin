@@ -1,139 +1,154 @@
 <!doctype html>
+<!-- Static preview of certificates/certificate-template.php with sample data. Open in a browser. -->
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Test</title>
+    <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
     <style>
       @page {
         size: A4 landscape;
         margin: 0;
       }
 
-      body {
+      html, body {
         margin: 0;
         padding: 0;
-        font-family:
-          DejaVu Sans,
-          sans-serif;
+        font-family: 'DejaVu Sans', sans-serif;
+        color: #2b2b2b;
       }
 
-      .certificate {
-        background-image: url("../../assets/certificate-bg.png");
-        background-size: cover;
-        background-repeat: no-repeat;
-
+      .page {
+        position: relative;
         width: 297mm;
-        height: 210mm;
-        box-sizing: border-box;
-        padding: 10mm;
-        border: 8px solid #0e1579;
-        text-align: center;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
+        height: 209.5mm;
         overflow: hidden;
       }
 
-      .logo {
-        width: 350px;
-        margin-top: -120px;
+      .bg {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 297mm;
+        height: 210mm;
       }
 
-      .title {
-        font-size: 42px;
-        font-weight: bold;
-        margin-bottom: 10px;
-      }
-
-      .subtitle {
-        font-size: 18px;
-        margin-bottom: 20px;
-      }
-
-      .name {
-        font-size: 36px;
-        font-weight: bold;
-        margin: 20px 0;
-      }
-
-      .course {
-        font-size: 20px;
-        margin-top: 10px;
-      }
-
-      .qr {
-        margin-top: 20px;
-      }
-
-      .qr img {
-        width: 84px;
-        height: 84px;
-        object-fit: contain;
-      }
-
-      .cert-number {
-        font-size: 12px;
-        margin-bottom: 15px;
-      }
-
-      .signatures {
-        display: flex;
-        justify-content: space-between;
-      }
-
-      .sig-box img {
-        width: 120px;
-      }
-
-      .sig-box span {
-        display: block;
-        margin-top: 5px;
-        font-size: 14px;
-        font-weight: bold;
-        font-style: italic;
-      }
-
-      .sig {
+      /* Text column, kept clear of the top band and the seal/ribbon on the right */
+      .content {
+        position: absolute;
+        left: 22mm;
+        top: 64mm;
+        width: 212mm;
         text-align: center;
       }
 
-      .sig-line {
-        width: 200px;
-        border-top: 1px solid #000;
-        margin-bottom: 5px;
+      .title {
+        font-size: 36px;
+        font-weight: bold;
+        color: #13207a;
+        letter-spacing: 0.5px;
+      }
+
+      .subtitle {
+        font-size: 15px;
+        margin-top: 4mm;
+      }
+
+      .name {
+        font-size: 30px;
+        font-weight: bold;
+        color: #13207a;
+        margin-top: 4mm;
+      }
+
+      .rule {
+        width: 70mm;
+        height: 0;
+        margin: 3mm auto 0 auto;
+        border-top: 1.2mm solid #f47b20;
+      }
+
+      .course {
+        font-size: 15px;
+        margin-top: 5mm;
+        line-height: 1.5;
+      }
+
+      .course strong {
+        font-size: 17px;
+        color: #13207a;
+      }
+
+      /* Bottom row: QR + certificate number on the left, signature on the right */
+      .verify {
+        position: absolute;
+        left: 52mm;
+        top: 151mm;
+        width: 60mm;
+        text-align: center;
+      }
+
+      .verify img {
+        width: 26mm;
+        height: 26mm;
+      }
+
+      .cert-number {
+        font-size: 10px;
+        margin-top: 1.5mm;
+      }
+
+      .sig {
+        position: absolute;
+        left: 146mm;
+        top: 155mm;
+        width: 60mm;
+        text-align: center;
+      }
+
+      .sig img {
+        width: 34mm;
+      }
+
+      .sig .line {
+        width: 50mm;
+        height: 0;
+        margin: 1mm auto 0 auto;
+        border-top: 0.3mm solid #13207a;
+      }
+
+      .sig span {
+        display: block;
+        margin-top: 1.5mm;
+        font-size: 13px;
+        font-weight: bold;
+        font-style: italic;
+        color: #13207a;
       }
     </style>
   </head>
   <body>
-    <div class="certificate">
-      <img class="logo" src="$logo" />
+    <div class='page'>
+      <img class='bg' src='../../assets/certificate-bg.png' />
 
-      <div class="title">Certificate of Completion</div>
-
-      <div class="subtitle">This certificate is proudly presented to</div>
-
-      <div class="name">$name</div>
-
-      <div class="course">
-        For successfully completing the course(s):
-        <br /><br />
-        <strong>$courses</strong>
-      </div>
-
-      <div class="qr">
-        <img src="$qr" width="120" />
-      </div>
-
-      <div class="cert-number">Certificate Number: $cert</div>
-
-      <div class="signature">
-        <div class="sig-box">
-          <img src="$signature" />
-          <div class="sig-line"></div>
-          <span>Director</span>
+      <div class='content'>
+        <div class='title'>Certificate of Completion</div>
+        <div class='subtitle'>This certificate is proudly presented to</div>
+        <div class='name'>ERAGBAI AIDELOJE DAVID</div>
+        <div class='rule'></div>
+        <div class='course'>
+          For successfully completing the course(s):<br />
+          <strong>DATA ANALYST</strong>
         </div>
+      </div>
+
+      <div class='verify'>
+        <img src='https://api.qrserver.com/v1/create-qr-code/?size=200x200&amp;data=https://mayovest.com/verify-certificate?cert=MCS/DA/102025/003' />
+        <div class='cert-number'>Certificate Number: MCS/DA/102025/003</div>
+      </div>
+
+      <div class='sig'>
+        <img src='../../assets/signature.png' />
+        <div class='line'></div>
+        <span>Director</span>
       </div>
     </div>
   </body>

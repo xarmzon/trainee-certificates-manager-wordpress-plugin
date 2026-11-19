@@ -57,7 +57,8 @@ function tcm_download_certificate()
     wp_reset_postdata();
 
     $options = new Options();
-    $options->set('isRemoteEnabled',true);
+    $options->set('isRemoteEnabled', true); // QR code comes from api.qrserver.com
+    $options->setChroot(TCM_PATH);          // background + signature load from the plugin folder
 
     $dompdf = new Dompdf($options);
 
