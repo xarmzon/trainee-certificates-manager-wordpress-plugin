@@ -122,19 +122,19 @@ function tcm_certificate_html($name, $courses, $cert)
       .sig {
         position: absolute;
         left: 146mm;
-        top: 155mm;
+        top: 153mm;
         width: 60mm;
         text-align: center;
       }
 
       .sig img {
-        width: 34mm;
+        width: 46mm;
       }
 
       .sig .line {
         width: 50mm;
         height: 0;
-        margin: 1mm auto 0 auto;
+        margin: -1mm auto 0 auto;
         border-top: 0.3mm solid #13207a;
       }
 
